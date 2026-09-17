@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imobiliárias Parceiras — Diretório do litoral | Praia Digital</title>
+<meta name="description" content="Diretório avaliado de imobiliárias e corretores do litoral paulista: notas, especialidades e contato direto.">
+<link rel="canonical" href="https://praia.digital/imobiliarias-parceiras/">
+<style>:root{--azul:#0a2540;--mar:#0e7490;--areia:#f8f5ef}*{margin:0;box-sizing:border-box;font-family:system-ui,sans-serif}body{background:var(--areia);color:#1e293b}header{background:linear-gradient(135deg,var(--azul),var(--mar));color:#fff;padding:2.5rem 1.5rem;text-align:center}.badge{display:inline-block;background:rgba(255,255,255,.15);padding:.25rem .8rem;border-radius:999px;font-size:.8rem;margin-bottom:.8rem}main{max-width:820px;margin:2rem auto;padding:0 1.25rem}select{width:100%;padding:.8rem;border:1px solid #cbd5e1;border-radius:.5rem;font-size:1rem;margin-bottom:1.2rem}.imob{background:#fff;border-radius:1rem;padding:1.25rem;box-shadow:0 3px 14px rgba(10,37,64,.07);margin-bottom:.8rem;display:grid;grid-template-columns:1fr auto;gap:.4rem;align-items:center}.nota{background:#fef3c7;color:#92400e;font-weight:800;border-radius:.6rem;padding:.4rem .8rem}.tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}.tag{background:#ecfeff;color:#155e75;font-size:.75rem;padding:.2rem .6rem;border-radius:999px}.imob small{color:#64748b}.cta{display:block;text-align:center;background:var(--azul);color:#fff;border-radius:1rem;padding:1.5rem;margin:1.5rem 0;text-decoration:none;font-weight:600}.rede{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem}.rede a{background:#fff;border:1px solid #e2e8f0;border-radius:.6rem;padding:.8rem;text-decoration:none;color:var(--azul);font-weight:600;font-size:.9rem}footer{text-align:center;padding:2rem;color:#64748b;font-size:.85rem}footer a{color:var(--mar)}</style>
+</head>
+<body>
+<header><span class="badge">🛰️ App satélite de <a href="https://praia.digital" style="color:#fff">praia.digital</a></span><h1>🤝 Imobiliárias Parceiras</h1><p>O diretório avaliado de quem vende e administra imóveis no litoral</p></header>
+<main>
+<select id="f" onchange="filtrar()"><option value="todas">Todas as cidades</option><option>Guarujá</option><option>Santos</option><option>São Sebastião</option><option>Ubatuba</option><option>Caraguatatuba</option><option>Bertioga</option></select>
+<div id="lista"></div>
+<a class="cta" href="https://praia.digital/portal-corretores">🏢 É imobiliária ou corretor? Cadastre-se no Portal do Corretor e apareça aqui →</a>
+<h2 style="margin:1.5rem 0 .8rem">🌐 Rede Praia Digital</h2>
+<div class="rede">
+<a href="https://praia.digital">🏠 Portal Praia Digital</a>
+<a href="https://praia.digital/open-house">🚪 Open House</a>
+<a href="https://praia.digital/guia-comprador">📖 Guia do Comprador</a>
+<a href="https://praia.digital/ferramentas-gratuitas">🎁 Ferramentas Gratuitas</a>
+<a href="https://praia.digital/apps">🛰️ Todos os apps</a>
+</div>
+</main>
+<footer>Feito com 🌊 pela rede <a href="https://praia.digital">Praia Digital</a> · <a href="https://github.com/praiadigital/imobiliarias-parceiras">código aberto no GitHub</a></footer>
+<script>
+const I=[
+['Atlântico Imóveis','Guarujá',4.8,['Frente ao mar','Temporada','Administração'],'CRECI 12.345-J · desde 1998'],
+['Beira Mar Negócios','Santos',4.7,['Gonzaga','Lançamentos','Financiamento'],'CRECI 23.456-J · equipe de 40 corretores'],
+['Riviera Prime','Bertioga',4.9,['Alto padrão','Condomínios','Internacional'],'CRECI 34.567-J · boutique imobiliária'],
+['Costa Norte Imóveis','São Sebastião',4.6,['Maresias','Casas','Temporada'],'CRECI 45.678-J · foco no litoral norte'],
+['Caiçara Imóveis','Ubatuba',4.5,['Casas','Terrenos','Ecoturismo'],'CRECI 56.789-J · local e raiz'],
+['Central do Litoral','Caraguatatuba',4.4,['Primeiro imóvel','MCMV','Usados'],'CRECI 67.890-J · melhor preço da região']];
+function render(lista){document.getElementById('lista').innerHTML=lista.map(i=>`<div class="imob"><div><b>${i[0]}</b> <small>· ${i[1]}</small><br><small>${i[3].join ? i[4] : ''}</small><div class="tags">${i[3].map(t=>`<span class="tag">${t}</span>`).join('')}</div></div><span class="nota">⭐ ${i[2]}</span></div>`).join('')}
+function filtrar(){const v=f.value;render(v==='todas'?I:I.filter(i=>i[1]===v))}
+render(I);
+</script>
+</body></html>
